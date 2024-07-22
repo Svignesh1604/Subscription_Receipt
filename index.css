@@ -1,0 +1,703 @@
+/* 
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(120deg, #1b1b1b, #2d2d2d);
+    color: #fff;
+}
+
+
+
+a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    
+}
+
+.toggle-button {
+    display: none;
+    font-size: 2rem;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.toggle-button:focus {
+    outline: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 2px;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    color: #ff4500;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar nav ul li {
+    display: inline;
+}
+
+.navbar nav ul li a {
+    color: #fff;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar nav ul li a:hover {
+    background-color:darkcyan;
+    border-radius: 50px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 2rem;
+}
+
+.subscription-status {
+    background: rgba(40, 44, 52, 0.9);
+    padding: 2.5rem 3rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.subscription-status::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, rgba(255, 69, 0, 0.5), rgba(30, 144, 255, 0.5));
+    transform: rotate(45deg);
+    z-index: 1;
+    animation: gradient-animation 5s infinite linear;
+}
+
+.subscription-status h1 {
+    color: #ff4500;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 1s ease-in-out;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.status-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.status-form label {
+    font-size: 1.1rem;
+}
+
+.status-form input {
+    padding: 0.7rem;
+    width: 100%;
+    max-width: 350px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1) ;
+}
+
+.status-form button {
+    padding: 0.7rem 2.5rem;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(120deg, #1e90ff, #ff4500);
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.status-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.not-subscribed {
+    margin-top: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.not-subscribed p {
+    margin: 0;
+}
+
+.not-subscribed a {
+    background-color: #ff4500;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    color: #fff;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.not-subscribed a:hover {
+    background-color: #1e90ff;
+    transform: translateY(-3px);
+}
+
+
+footer {
+    text-align: center;
+    padding: 1rem 2rem;
+    background-color: #333;
+    
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    color: #ccc;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .toggle-button {
+        display: block;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .navbar nav.active {
+        display: block;
+    }
+
+    .navbar nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        display: none; 
+    }
+
+    .navbar nav ul.active {
+        display: flex; 
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .subscription-status {
+        padding: 2rem;
+        max-width: 90%;
+    }
+
+    .status-form label, .status-form input, .status-form button {
+        width: 100%;
+        max-width: none;
+    }
+
+    .status-form button {
+        padding: 0.7rem 1rem;
+    }
+
+    .not-subscribed p, .not-subscribed a {
+        display: block;
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+
+    footer {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .logo {
+        font-size: 1.5rem;
+    }
+
+    .subscription-status {
+        padding: 1.5rem;
+    }
+
+    .subscription-status h1 {
+        font-size: 1.5rem;
+    }
+
+    .status-form label {
+        font-size: 1rem;
+    }
+
+    .status-form button {
+        padding: 0.7rem;
+        font-size: 1rem;
+    }
+}
+
+@keyframes gradient-animation {
+    0% {
+        transform: rotate(45deg) translate(-50%, -50%);
+    }
+    50% {
+        transform: rotate(45deg) translate(50%, 50%);
+    }
+    100% {
+        transform: rotate(45deg) translate(-50%, -50%);
+    }
+} */
+
+
+/* Base styles */
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+header.navbar {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+}
+
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+header .toggle-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: none;
+}
+
+header nav {
+    margin-left: auto;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+header nav ul li {
+    margin: 0;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header nav ul li a:hover {
+    background-color: #3e8e41;
+}
+
+main {
+    padding: 20px;
+}
+
+.subscription-status {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.subscription-status h1 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.status-form {
+    margin-bottom: 20px;
+}
+
+.status-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.status-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.status-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.status-form button:hover {
+    background-color: #45a049;
+}
+
+.not-subscribed p {
+    color: #007BFF;
+    cursor: default;
+}
+
+.not-subscribed a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: crimson;
+    color: whitesmoke;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.not-subscribed a:hover {
+    background-color: darkred;
+}
+
+
+
+footer {
+    text-align: center;
+    padding: 1rem 2rem;
+    background-color: #333;
+    
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    color: #ccc;
+} */
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(120deg, #1b1b1b, #2d2d2d);
+    color: #fff;
+}
+
+
+
+a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    
+}
+
+.toggle-button {
+    display: none;
+    font-size: 2rem;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.toggle-button:focus {
+    outline: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 2px;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    color: #ff4500;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar nav ul li {
+    display: inline;
+}
+
+.navbar nav ul li a {
+    color: #fff;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar nav ul li a:hover {
+    background-color:darkcyan;
+    border-radius: 50px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 2rem;
+}
+
+.subscription-status {
+    background: rgba(40, 44, 52, 0.9);
+    padding: 2.5rem 3rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.subscription-status::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, rgba(255, 69, 0, 0.5), rgba(30, 144, 255, 0.5));
+    transform: rotate(45deg);
+    z-index: 1;
+    animation: gradient-animation 5s infinite linear;
+}
+
+.subscription-status h1 {
+    color: #ff4500;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 1s ease-in-out;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.status-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.status-form label {
+    font-size: 1.1rem;
+}
+
+.status-form input {
+    padding: 0.7rem;
+    width: 100%;
+    max-width: 350px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1) ;
+}
+
+.status-form button {
+    padding: 0.7rem 2.5rem;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(120deg, #1e90ff, #ff4500);
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.status-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.not-subscribed {
+    margin-top: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.not-subscribed p {
+    margin: 0;
+}
+
+.not-subscribed a {
+    background-color: #ff4500;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    color: #fff;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.not-subscribed a:hover {
+    background-color: #1e90ff;
+    transform: translateY(-3px);
+}
+
+
+footer {
+    text-align: center;
+    padding: 1rem 2rem;
+    background-color: #333;
+    
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    color: #ccc;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+@media (max-width: 750px) {
+    header .toggle-button {
+        display: block;
+    }
+    header nav {
+        display: none;
+        flex-direction: column;
+        background-color:cadetblue;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+    }
+    header.navbar.active nav {
+        display: flex;
+    }
+    header nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+    header nav ul li {
+        margin-bottom: 10px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    main {
+        padding: 10px;
+    }
+    .subscription-status {
+        padding: 20px;
+    }
+    .status-form input, .status-form button {
+        font-size: 0.9em;
+    }
+    .not-subscribed a {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+    footer {
+        padding: 10px 0;
+    }
+}
+@keyframes gradient-animation {
+    0% {
+        transform: rotate(45deg) translate(-50%, -50%);
+    }
+    50% {
+        transform: rotate(45deg) translate(50%, 50%);
+    }
+    100% {
+        transform: rotate(45deg) translate(-50%, -50%);
+    }
+}

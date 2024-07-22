@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Status</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo" style="margin-left: 20px;">GOWTHAMRAJ NETWORK</div>
+        <button class="toggle-button" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </button>
+        <nav style="margin-right: 20px;">
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Subscribe</a></li>
+                <li><a href="#">Team</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="subscription-status">
+            <h1>Membership Status</h1>
+            <div class="status-form">
+                <label for="acknowledgement-number">Enter Acknowledgement Number:</label>
+                <input type="text" id="acknowledgement-number" placeholder="Enter your Acknowledgement number">
+                <button type="button">View</button>
+            </div>
+            <div class="not-subscribed">
+                <p style="color: blue; cursor:context-menu;">Not Subscribed?</p>
+                <br><br><br>
+                <a href="#" style="border-radius: 70px; color: whitesmoke; background-color: crimson;">Explore
+                    Subscription Plans Here</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 || GOWTHAMRAJ NETWORK ALL RIGHTS RESERVED</p>
+    </footer>
+
+   
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active');
+        }
+    </script>
+    
+</body>
+
+</html>
